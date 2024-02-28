@@ -1,19 +1,23 @@
 import Link from "next/link";
 import { FaRegCheckCircle } from "react-icons/fa";
+import {TableRow, TableCell} from "@nextui-org/react";
 
-export const Agremiado = ({nombre,apellido,mail,tel}) => {
+
+export const Agremiado = ({id,nombre,apellido,mail,tel}) => {
     return (
       <>
-        <p className="tabla-item">{apellido}</p>
-        <p className="tabla-item">{nombre}</p>
-        <p className="tabla-item">{mail}</p>
-        <p className="tabla-item">{tel}</p>
-        <div className="flex gap-5">
-          <Link href="/consultorio">
-            <p>Consultorio</p>
-          </Link>
-          <FaRegCheckCircle className="text-2xl cursor-pointer"/>
-        </div>
+        <TableRow key={id}>
+          <TableCell>{apellido}</TableCell>
+          <TableCell>{nombre}</TableCell>
+          <TableCell>{mail}</TableCell>
+          <TableCell>{tel}</TableCell>
+          <TableCell className="flex gap-5">
+              <Link href="/consultorio">
+                <p>Consultorio</p>
+              </Link>
+              <FaRegCheckCircle className="text-2xl cursor-pointer"/>
+          </TableCell>
+        </TableRow>
       </>
     );
   }
